@@ -1,0 +1,20 @@
+#pip install openpyxl
+
+from openpyxl import Workbook,load_workbook
+
+wb = load_workbook("gtsoz.xlsx")
+ws = wb.active
+
+user1 = input("hücre kodu giriniz: a ile başlamalı")
+user2 = input("bitiş hücresi seçiniz: e ile başlamalı")
+
+for row in range(1,2):
+    for column in range(1,6):        
+        print(" <" + str(ws.cell(row,column).value) + "> ",end="")
+    print()
+
+
+for satir in ws[user1:user2]:
+    for hucre in satir:
+        print("  <" + str(hucre.value) + "> ",end="")
+    print()
